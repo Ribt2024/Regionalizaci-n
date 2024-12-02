@@ -150,4 +150,130 @@ document.addEventListener("DOMContentLoaded", () => {
     let value = parseFloat(rawValue);
     input.value = !isNaN(value) ? value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "";
   }
+
+
+document.getElementById("generateReport").addEventListener("click", () => {
+    const tableBody = document.querySelector("#budgetTable tbody");
+    const reportSection = document.getElementById("reportSection");
+
+    if (!tableBody) {
+        console.error("No se encontró la tabla con el ID 'budgetTable'");
+        return;
+    }
+
+    // Limpiar cualquier informe generado previamente
+    reportSection.innerHTML = "";
+
+    const rows = Array.from(tableBody.rows); // Obtener todas las filas de la tabla original
+
+    // Función para limpiar separadores de miles y convertir a número
+    const cleanNumber = (value) => {
+        return parseFloat(value.replace(/,/g, '') || 0);
+    };
+
+    // Función para formatear números con separadores de miles
+    const formatNumber = (value) => {
+        return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
+
+    rows.forEach((row, index) => {
+        const reportTableContainer = document.createElement("div");
+        reportTableContainer.classList.add("report-container");
+
+        // Agregar el título de la tabla
+        const tableTitle = document.createElement("h3");
+        tableTitle.textContent = `Datos de P${index + 1}`;
+        reportTableContainer.appendChild(tableTitle);
+
+        const reportTable = document.createElement("table");
+        reportTable.classList.add("report-table");
+
+        // Crear encabezado de la nueva tabla
+        const headerRow = document.createElement("tr");
+        ["AÑO", "PROPIO", "SGP", "TOTALES"].forEach(headerText => {
+            const headerCell = document.createElement("th");
+            headerCell.textContent = headerText;
+            headerRow.appendChild(headerCell);
+        });
+        reportTable.appendChild(headerRow);
+
+        // Crear filas de datos
+        const years = ["2024", "2025", "2026", "2027"];
+        let totalPropio = 0;
+        let totalSGP = 0;
+        let totalTotales = 0;
+
+        years.forEach((year, yearIndex) => {
+            const dataRow = document.createElement("tr");
+
+            // Columna "AÑO"
+            const yearCell = document.createElement("td");
+            yearCell.textContent = year;
+            dataRow.appendChild(yearCell);
+
+            // Columnas "PROPIO" y "SGP"
+            const propioInput = row.querySelectorAll("input")[yearIndex * 2]; // PROPIO
+            const sgpInput = row.querySelectorAll("input")[yearIndex * 2 + 1]; // SGP
+
+            const propioValue = cleanNumber(propioInput?.value);
+            const sgpValue = cleanNumber(sgpInput?.value);
+
+            const propioCell = document.createElement("td");
+            propioCell.textContent = formatNumber(propioValue);
+            dataRow.appendChild(propioCell);
+
+            const sgpCell = document.createElement("td");
+            sgpCell.textContent = formatNumber(sgpValue);
+            dataRow.appendChild(sgpCell);
+
+            // Columna "TOTALES" (negrita)
+            const totalValue = propioValue + sgpValue;
+
+            const totalCell = document.createElement("td");
+            totalCell.textContent = formatNumber(totalValue);
+            totalCell.style.fontWeight = "bold";  // Aplicar negrita a la celda de total
+            dataRow.appendChild(totalCell);
+
+            // Sumar los valores a los totales por columna
+            totalPropio += propioValue;
+            totalSGP += sgpValue;
+            totalTotales += totalValue;
+
+            reportTable.appendChild(dataRow);
+        });
+
+        // Crear fila de totales por columna (PROPIO, SGP, TOTALES) (negrita)
+        const columnTotalsRow = document.createElement("tr");
+        const columnTotalsLabelCell = document.createElement("td");
+        columnTotalsLabelCell.textContent = "TOTAL FUENTE";
+        columnTotalsLabelCell.colSpan = 1;
+        columnTotalsLabelCell.style.fontWeight = "bold"; // Negrita en la celda de la etiqueta
+        columnTotalsRow.appendChild(columnTotalsLabelCell);
+
+        // Sumar los totales de las columnas
+        const totalPropioCell = document.createElement("td");
+        totalPropioCell.textContent = formatNumber(totalPropio);
+        totalPropioCell.style.fontWeight = "bold"; // Negrita
+        columnTotalsRow.appendChild(totalPropioCell);
+
+        const totalSGPCell = document.createElement("td");
+        totalSGPCell.textContent = formatNumber(totalSGP);
+        totalSGPCell.style.fontWeight = "bold"; // Negrita
+        columnTotalsRow.appendChild(totalSGPCell);
+
+        const totalTotalesCell = document.createElement("td");
+        totalTotalesCell.textContent = formatNumber(totalTotales);
+        totalTotalesCell.style.fontWeight = "bold"; // Negrita
+        columnTotalsRow.appendChild(totalTotalesCell);
+
+        reportTable.appendChild(columnTotalsRow);
+
+        // Añadir la tabla generada al contenedor
+        reportTableContainer.appendChild(reportTable);
+
+        // Agregar la tabla al reporte final
+        reportSection.appendChild(reportTableContainer);
+    });
+});
+
   
