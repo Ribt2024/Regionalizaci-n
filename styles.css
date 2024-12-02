@@ -1,0 +1,163 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 0; /* Elimina espacio adicional dentro de las celdas */
+    font-size: 15px; /* Reduce el tamaño del texto */
+    height: 30px; /* Altura específica más pequeña */
+  }
+  
+  th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  thead tr:nth-child(1) th {
+    background-color: #ffd700; /* Amarillo para los encabezados principales */
+  }
+  
+  thead tr:nth-child(2) th {
+    background-color: #add8e6; /* Azul para los encabezados secundarios */
+  }
+
+
+  #budgetTable thead tr:nth-child(2) th:first-child {
+    background-color: #add8e6; /* Azul para el encabezado secundario "Propio" */
+  }
+
+  
+  tfoot td {
+    background-color: #d1f7d1; /* Verde claro para los totales */
+    font-weight: bold;
+  }
+  
+  /* Inputs dentro de las celdas */
+  input[type="number"] {
+    width: 100%;
+    height: 100%; /* Ocupa todo el alto de la celda */
+    border: none;
+    text-align: right;
+    font-size: 14px; /* Asegura que el texto sea legible */
+    box-sizing: border-box;
+  }
+  
+  input[type="number"]:focus {
+    outline: none; /* Elimina el borde azul en focus */
+  }
+  
+  /* Botones */
+  button {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Ajustes Responsivos */
+  @media (max-width: 768px) {
+    th, td {
+      font-size: 12px; /* Ajusta el tamaño del texto para pantallas pequeñas */
+    }
+  }
+  
+  /* Estilo para ajustar los inputs */
+  #budgetTable td input {
+    width: 100%; /* Ajusta el ancho al 90% de la celda */
+    height: 2.4em; /* Ajusta la altura del campo */
+    padding: 2px; /* Espaciado interno */
+    font-size: 1.0em; /* Tamaño de la fuente */
+    text-align: right; /* Alineación a la derecha */
+    border: 1px solid #ccc; /* Bordes discretos */
+    box-sizing: border-box; /* Incluye padding y bordes en el ancho y alto */
+  }
+  
+  /* Evitar que los inputs se peguen entre celdas */
+  #budgetTable td {
+    padding: 5px; /* Espacio entre celdas */
+    text-align: center; /* Centra contenido */
+  }
+  
+  #budgetTable th, #budgetTable td {
+    border: 1px solid #ddd; /* Bordes para separar celdas */
+  }
+  
+  /* Estilo para el hover de las celdas */
+  #budgetTable td:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Opcional: Ajustar el botón de eliminar */
+  #budgetTable td button {
+    padding: 5px 10px;
+    font-size: 0.8em;
+  }
+  
+  /* Estilo para los totales en el pie de la tabla */
+  #budgetTable tfoot td#totalPropios,
+  #budgetTable tfoot td#totalSGP {
+    font-weight: bold; /* Negrilla */
+    font-size: 0.95em; /* Tamaño de fuente más grande */
+    color: #333; /* Color oscuro para resaltar */
+    text-align: center; /* Centrado en la celda */
+    background-color: #f4f4f4; /* Fondo para destacar (opcional) */
+  }
+  
+  /* Ajusta la columna de Eliminar */
+  #budgetTable th.eliminar,
+  #budgetTable td:last-child {
+    width: 80px; /* Ajusta el ancho como desees */
+    text-align: center; /* Centra el contenido */
+  }
+  
+  #budgetTable td:last-child button {
+    width: 85%; /* Ajusta el ancho del botón */
+    padding: 5px;
+    font-size: 0.9em;
+  }
+  
+  /* Ajusta la primera columna "P" */
+  #budgetTable th:first-child,
+  #budgetTable td:first-child {
+    width: 90px; /* Ajusta el ancho como prefieras */
+    text-align: center; /* Centra el contenido */
+    
+    background-color: #f9f9f9; /* Cambia el fondo para destacar */
+  }
+  
+  
+  

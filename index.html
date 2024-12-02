@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Presupuestal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    
+  </header>
+  <main>
+    <table id="budgetTable">
+      <thead>
+        <tr>
+          <th rowspan="2">P</th>
+          <th colspan="2">2024</th>
+          <th colspan="2">2025</th>
+          <th colspan="2">2026</th>
+          <th colspan="2">2027</th>
+          <th rowspan="2">TOTAL PROPIOS</th>
+          <th rowspan="2">TOTAL SGP</th>
+          <th rowspan="2" class="eliminar">ELIMINAR</th>
+        </tr>
+        <tr>
+          <th>PROPIO</th>
+          <th>SGP</th>
+          <th>PROPIO</th>
+          <th>SGP</th>
+          <th>PROPIO</th>
+          <th>SGP</th>
+          <th>PROPIO</th>
+          <th>SGP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas dinámicas -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>TOTALES</td>
+          <td id="total2024Propio">0.00</td>
+          <td id="total2024SGP">0.00</td>
+          <td id="total2025Propio">0.00</td>
+          <td id="total2025SGP">0.00</td>
+          <td id="total2026Propio">0.00</td>
+          <td id="total2026SGP">0.00</td>
+          <td id="total2027Propio">0.00</td>
+          <td id="total2027SGP">0.00</td>
+          <td id="totalPropios">0.00</td>
+          <td id="totalSGP">0.00</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+    <button id="addRow">Agregar Producto</button>
+    <button id="resetTable">Borrar Todo</button>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
