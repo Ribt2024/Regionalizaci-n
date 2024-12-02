@@ -1,191 +1,191 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  header {
-    background-color: #217346;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  /* Table Styles */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    table-layout: fixed;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #217346;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  table-layout: fixed;
+}
+
+th, td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 0; /* Elimina espacio adicional dentro de las celdas */
+  font-size: 15px; /* Reduce el tamaño del texto */
+  height: 30px; /* Altura específica más pequeña */
+}
+
+th {
+  background-color: #217346;
+  font-weight: bold;
+}
+
+thead tr:nth-child(1) th {
+  background-color: #217346; /* Verde EXCEL para los encabezados principales */
+  color: white; /* Texto blanco para contraste */
+}
+
+thead tr:nth-child(2) th {
+  background-color: #d9d9d9; /* Gris EXCEL para los encabezados secundarios */
+}
+
+
+#budgetTable thead tr:nth-child(2) th:first-child {
+  background-color: #d9d9d9; /* Gris EXCEL para el encabezado secundario "Propio" */
+}
+
+
+tfoot td {
+  background-color: #d1f7d1; /* Verde claro para los totales */
+  font-weight: bold;
+}
+
+/* Inputs dentro de las celdas */
+input[type="number"] {
+  width: 100%;
+  height: 100%; /* Ocupa todo el alto de la celda */
+  border: none;
+  text-align: right;
+  font-size: 14px; /* Asegura que el texto sea legible */
+  box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+  outline: none; /* Elimina el borde azul en focus */
+}
+
+/* Botones */
+button {
+  padding: 5px 10px;
+  margin: 5px 0;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
   th, td {
-    border: 1px solid #000;
-    text-align: center;
-    padding: 0; /* Elimina espacio adicional dentro de las celdas */
-    font-size: 15px; /* Reduce el tamaño del texto */
-    height: 30px; /* Altura específica más pequeña */
+    font-size: 12px; /* Ajusta el tamaño del texto para pantallas pequeñas */
   }
-  
-  th {
-    background-color: #217346;
-    font-weight: bold;
-  }
-  
-  thead tr:nth-child(1) th {
-    background-color: #217346; /* Verde EXCEL para los encabezados principales */
-    color: white; /* Texto blanco para contraste */
-  }
-  
-  thead tr:nth-child(2) th {
-    background-color: #d9d9d9; /* Gris EXCEL para los encabezados secundarios */
-  }
+}
 
+/* Estilo para ajustar los inputs */
+#budgetTable td input {
+  width: 100%; /* Ajusta el ancho al 90% de la celda */
+  height: 2.4em; /* Ajusta la altura del campo */
+  padding: 2px; /* Espaciado interno */
+  font-size: 1.0em; /* Tamaño de la fuente */
+  text-align: right; /* Alineación a la derecha */
+  border: 1px solid #ccc; /* Bordes discretos */
+  box-sizing: border-box; /* Incluye padding y bordes en el ancho y alto */
+}
 
-  #budgetTable thead tr:nth-child(2) th:first-child {
-    background-color: #d9d9d9; /* Gris EXCEL para el encabezado secundario "Propio" */
-  }
+/* Evitar que los inputs se peguen entre celdas */
+#budgetTable td {
+  padding: 5px; /* Espacio entre celdas */
+  text-align: center; /* Centra contenido */
+}
 
+#budgetTable th, #budgetTable td {
+  border: 1px solid #ddd; /* Bordes para separar celdas */
+}
+
+/* Estilo para el hover de las celdas */
+#budgetTable td:hover {
+  background-color: #f9f9f9;
+}
+
+/* Opcional: Ajustar el botón de eliminar */
+#budgetTable td button {
+  padding: 5px 10px;
+  font-size: 0.8em;
+}
+
+/* Estilo para los totales en el pie de la tabla */
+#budgetTable tfoot td#totalPropios,
+#budgetTable tfoot td#totalSGP {
+  font-weight: bold; /* Negrilla */
+  font-size: 0.95em; /* Tamaño de fuente más grande */
+  color: #333; /* Color oscuro para resaltar */
+  text-align: center; /* Centrado en la celda */
+  background-color: #f4f4f4; /* Fondo para destacar (opcional) */
+}
+
+/* Ajusta la columna de Eliminar */
+#budgetTable th.eliminar,
+#budgetTable td:last-child {
+  width: 80px; /* Ajusta el ancho como desees */
+  text-align: center; /* Centra el contenido */
+}
+
+#budgetTable td:last-child button {
+  width: 85%; /* Ajusta el ancho del botón */
+  padding: 5px;
+  font-size: 0.9em;
+}
+
+/* Ajusta la primera columna "P" */
+#budgetTable th:first-child,
+#budgetTable td:first-child {
+  width: 90px; /* Ajusta el ancho como prefieras */
+  text-align: center; /* Centra el contenido */
   
-  tfoot td {
-    background-color: #d1f7d1; /* Verde claro para los totales */
-    font-weight: bold;
-  }
-  
-  /* Inputs dentro de las celdas */
-  input[type="number"] {
-    width: 100%;
-    height: 100%; /* Ocupa todo el alto de la celda */
-    border: none;
-    text-align: right;
-    font-size: 14px; /* Asegura que el texto sea legible */
-    box-sizing: border-box;
-  }
-  
-  input[type="number"]:focus {
-    outline: none; /* Elimina el borde azul en focus */
-  }
-  
-  /* Botones */
-  button {
-    padding: 5px 10px;
-    margin: 5px 0;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Ajustes Responsivos */
-  @media (max-width: 768px) {
-    th, td {
-      font-size: 12px; /* Ajusta el tamaño del texto para pantallas pequeñas */
-    }
-  }
-  
-  /* Estilo para ajustar los inputs */
-  #budgetTable td input {
-    width: 100%; /* Ajusta el ancho al 90% de la celda */
-    height: 2.4em; /* Ajusta la altura del campo */
-    padding: 2px; /* Espaciado interno */
-    font-size: 1.0em; /* Tamaño de la fuente */
-    text-align: right; /* Alineación a la derecha */
-    border: 1px solid #ccc; /* Bordes discretos */
-    box-sizing: border-box; /* Incluye padding y bordes en el ancho y alto */
-  }
-  
-  /* Evitar que los inputs se peguen entre celdas */
-  #budgetTable td {
-    padding: 5px; /* Espacio entre celdas */
-    text-align: center; /* Centra contenido */
-  }
-  
-  #budgetTable th, #budgetTable td {
-    border: 1px solid #ddd; /* Bordes para separar celdas */
-  }
-  
-  /* Estilo para el hover de las celdas */
-  #budgetTable td:hover {
-    background-color: #f9f9f9;
-  }
-  
-  /* Opcional: Ajustar el botón de eliminar */
-  #budgetTable td button {
-    padding: 5px 10px;
-    font-size: 0.8em;
-  }
-  
-  /* Estilo para los totales en el pie de la tabla */
-  #budgetTable tfoot td#totalPropios,
-  #budgetTable tfoot td#totalSGP {
-    font-weight: bold; /* Negrilla */
-    font-size: 0.95em; /* Tamaño de fuente más grande */
-    color: #333; /* Color oscuro para resaltar */
-    text-align: center; /* Centrado en la celda */
-    background-color: #f4f4f4; /* Fondo para destacar (opcional) */
-  }
-  
-  /* Ajusta la columna de Eliminar */
-  #budgetTable th.eliminar,
-  #budgetTable td:last-child {
-    width: 80px; /* Ajusta el ancho como desees */
-    text-align: center; /* Centra el contenido */
-  }
-  
-  #budgetTable td:last-child button {
-    width: 85%; /* Ajusta el ancho del botón */
-    padding: 5px;
-    font-size: 0.9em;
-  }
-  
-  /* Ajusta la primera columna "P" */
-  #budgetTable th:first-child,
-  #budgetTable td:first-child {
-    width: 90px; /* Ajusta el ancho como prefieras */
-    text-align: center; /* Centra el contenido */
-    
-    background-color: #f9f9f9; /* Cambia el fondo para destacar */
-  }
+  background-color: #f9f9f9; /* Cambia el fondo para destacar */
+}
 
 /* ------------------------------------------------------------------------------------------------- */
 /* ESTILO PARA LAS TABLAS DEL REPORTE */
 .report-table {
-    width: 50%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: #fff;
+  width: 50%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
 }
 
 .report-table th, .report-table td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
 }
 
 .report-table th {
-    background-color: #4CAF50;
-    color: white;
+  background-color: #4CAF50;
+  color: white;
 }
 
 .report-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .report-table tr:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 
@@ -194,60 +194,62 @@ body {
 
 /* Estilo para el contenedor de las tablas en el informe */
 #reportSection {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las tablas se ajusten en varias filas */
-    gap: 20px; /* Espacio entre las tablas */
-    justify-content: space-between; /* Distribuye el espacio entre las tablas */
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tablas se ajusten en varias filas */
+  gap: 20px; /* Espacio entre las tablas */
+  justify-content: space-between; /* Distribuye el espacio entre las tablas */
 }
 
 /* Estilo para cada contenedor de tabla */
 .report-container {
-    width: calc(50% - 20px); /* Dos tablas por fila, ajustado para el espaciado */
-    box-sizing: border-box;
-    margin-bottom: 20px; /* Espacio debajo de cada fila de tablas */
+  width: calc(50% - 20px); /* Dos tablas por fila, ajustado para el espaciado */
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Espacio debajo de cada fila de tablas */
 }
 
 /* Estilo específico para pantallas más pequeñas */
 @media (max-width: 768px) {
-    .report-container {
-        width: 100%; /* En pantallas pequeñas, las tablas ocuparán toda la fila */
-    }
+  .report-container {
+      width: 100%; /* En pantallas pequeñas, las tablas ocuparán toda la fila */
+  }
 }
 
 /* Estilo para las tablas dentro de cada contenedor */
 .report-container table {
-    width: 100%;
-    border-collapse: collapse; /* Fusiona los bordes de las celdas */
+  width: 100%;
+  border-collapse: collapse; /* Fusiona los bordes de las celdas */
 }
 
 /* Estilo para los encabezados y celdas de la tabla */
 .report-container th, .report-container td {
-    padding: 10px 15px;
-    text-align: right; /* Alinea el texto a la derecha */
-    border: 1px solid #ddd; /* Borde ligero */
+  padding: 10px 15px;
+  text-align: right; /* Alinea el texto a la derecha */
+  border: 1px solid #ddd; /* Borde ligero */
 }
 
 /* Fondo verde Excel y negrita para los encabezados */
 .report-container th {
-    background-color: #217346; /* Color verde Excel */
-    font-weight: bold;
-    color: white; /* Texto en blanco para contraste */
+  background-color: #217346; /* Color verde Excel */
+  font-weight: bold;
+  color: white; /* Texto en blanco para contraste */
 }
 
 /* Estilo para el título de cada tabla */
 .report-container .title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 /* Fila de totales en negrita */
 .report-container tfoot {
-    font-weight: bold;
+  font-weight: bold;
 }
 
+.grand-total-cell {
+text-align: right;
+color: rgb(15, 82, 15);
+font-size: 20px;
+padding-left: 10px;
+}
 
-
-
-  
-  

@@ -50,12 +50,24 @@
           <td id="total2027SGP">0.00</td>
           <td id="totalPropios">0.00</td>
           <td id="totalSGP">0.00</td>
-          <td></td>
+          
         </tr>
+        
+        <tr>
+          <td colspan="9" style="text-align: right; padding-right: 10px;">Total Fuente:</td> <!-- Etiqueta "Gran Total" -->
+          <td colspan="2" id="grandTotalCell" class="grand-total-cell">0.00</td> <!-- Celda para el Gran Total -->
+        </tr>
+        
       </tfoot>
     </table>
+    
     <button id="addRow">Agregar Producto</button>
     <button id="resetTable">Borrar Todo</button>
+    <button id="generateReport">Informe</button>
+    
+    <div id="reportSection"></div>
+
+
   </main>
   <script src="scripts.js"></script>
 </body>
